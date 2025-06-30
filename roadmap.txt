@@ -1,0 +1,60 @@
+Phase 1 - Local only no registry
+1. Package format, create a gpm.json file.
+
+2. Install Logic
+
+    CLI tool reads gpm.json
+
+    Copies each dependency folder into gpm_modules/
+
+    Optionally flatten or preserve tree structure
+
+3. Command: gpm install
+
+    Parse JSON
+
+    Copy dependencies into local folder
+
+    Save a lock file gpm-lock.json (for later)
+
+Phase 2: Simple Package Format + CLI Publish/Install
+
+Goal: Simulate a "publish" and "install from remote" flow.
+
+    1. Basic Registry (Local or Cloud)
+
+        Use a folder or a basic server to store .tgz files of packages
+
+    2. CLI Commands
+
+        gpm publish: Zips current package folder and pushes to "registry"
+
+        gpm install package-name: Downloads + unpacks to gpm_modules/
+
+    3. Versioning
+
+        Include "version": "1.0.0" in gpm.json
+
+        Store versions like registry/leftpad/1.0.0.tgz
+
+Phase 3: Dependency Resolution + Semantic Versioning
+
+Goal: Add support for versions and resolution
+
+    Implement semver range resolution (e.g. ^1.2.0)
+
+    Build a dependency tree and resolve conflicts (at least basic version of it)
+
+    Lock file includes resolved versions
+
+    Handle nested dependencies
+
+Phase 4 (Optional): Caching, Scripts, Auth, etc.
+
+    Package cache to avoid re-downloading
+
+    Post-install scripts
+
+    Private registries / authentication
+
+    Real registry backend (use something like S3 or your own server)
