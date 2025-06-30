@@ -1,6 +1,6 @@
 {
   "name": "unamed-project",
   "dependencies": {
-    "leftpad": "^1.0.0"
+    "leftpad": "^2.0.0"
   }
 }
