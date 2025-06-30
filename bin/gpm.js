@@ -3,9 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+
 const { installPackages, installOnePackage } = require('../lib/install');
 const { uninstallPackage } = require('../lib/uninstall');
 const { publishPackage } = require('../lib/publish');
+const { showPackageInfo } = require('../lib/info');
 
 const command = process.argv[2];
 
@@ -56,6 +58,13 @@ if(command === 'install'){
         process.exit(1);
     }
     uninstallPackage(pkgName);
+} else if (command === 'info') {
+    const pkgName = process.argv[3];
+    if (!pkgName) {
+        console.error('❌ Use: gpm info <package-name>');
+        process.exit(1);
+    }
+    showPackageInfo(pkgName);
 } else {
     console.log('Unknown command. Try: gpm install or gpm publish');
 }
