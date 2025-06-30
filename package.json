@@ -11,5 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "archiver": "^7.0.1"
+  }
 }

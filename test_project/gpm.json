@@ -1,6 +1,6 @@
 {
-  "name": "test-project",
+  "name": "unamed-project",
   "dependencies": {
-    "leftpad": "../packages/leftpad"
+    "leftpad": "1.0.0"
   }
 }
